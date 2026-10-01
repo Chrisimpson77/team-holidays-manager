@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Holidays Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Team overview</p>
+          <h1>Holiday Planner</h1>
+        </div>
+        <button class="primary-btn" id="refreshButton">Refresh</button>
+      </header>
+
+      <section class="summary-grid" id="summaryGrid">
+        <article class="summary-card">
+          <span>Total Requests</span>
+          <strong id="totalRequests">0</strong>
+        </article>
+        <article class="summary-card approved">
+          <span>Approved</span>
+          <strong id="approvedCount">0</strong>
+        </article>
+        <article class="summary-card pending">
+          <span>Pending</span>
+          <strong id="pendingCount">0</strong>
+        </article>
+      </section>
+
+      <main class="content-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Request holiday</h2>
+          </div>
+
+          <form id="holidayForm">
+            <label>
+              Employee
+              <input type="text" id="employee" name="employee" placeholder="Jane Smith" required />
+            </label>
+
+            <div class="two-column">
+              <label>
+                Start date
+                <input type="date" id="startDate" name="startDate" required />
+              </label>
+              <label>
+                End date
+                <input type="date" id="endDate" name="endDate" required />
+              </label>
+            </div>
+
+            <label>
+              Leave type
+              <select id="type" name="type" required>
+                <option value="Annual Leave">Annual Leave</option>
+                <option value="Study Leave">Study Leave</option>
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label>
+              Status
+              <select id="status" name="status">
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </label>
+
+            <button type="submit" class="primary-btn full-width">Add request</button>
+          </form>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-header">
+            <h2>Holiday requests</h2>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Dates</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="holidayTableBody"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
